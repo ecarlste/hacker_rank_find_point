@@ -4,21 +4,24 @@ using System.IO;
 
 class Solution
 {
+    private const int MinimumNumberOfPoints = 1;
+    private const int MaximumNumberOfPoints = 15;
+
     static void Main(String[] args)
     {
-        int numberOfPoints = ReadNumberOfPoints();
+        int numberOfTestCases = ReadNumberOfTestCases();
 
         // if we recieve a -1 for the number of points, then we know an error
         // occurred
-        if (numberOfPoints == -1)
+        if (numberOfTestCases < 0)
         {
             return;
         }
     }
 
-    static int ReadNumberOfPoints()
+    static int ReadNumberOfTestCases()
     {
-        int numberOfPoints = -1;
+        int numberOfTestCases;
         String line = Console.ReadLine();
 
         // ensure that the value read in can be converted to an int32, and if
@@ -26,13 +29,23 @@ class Solution
         // know what incorrect value was typed.
         try
         {
-            numberOfPoints = Convert.ToInt32(line);
+            numberOfTestCases = Convert.ToInt32(line);
         }
         catch (FormatException)
         {
             Console.WriteLine("Invalid Input: '" + line + "' not an integer");
+            return -1;
         }
 
-        return numberOfPoints;
+        if (numberOfTestCases < MinimumNumberOfPoints ||
+            numberOfTestCases > MaximumNumberOfPoints)
+        {
+            Console.WriteLine("Invalid Input: " + numberOfTestCases +
+                " is not in range (" + MinimumNumberOfPoints + " <= T <= " +
+                MaximumNumberOfPoints + ")");
+            return -2;
+        }
+
+        return numberOfTestCases;
     }
 }
