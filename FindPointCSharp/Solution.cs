@@ -4,8 +4,8 @@ using System.IO;
 
 class Solution
 {
-    private const int MinimumNumberOfPoints = 1;
-    private const int MaximumNumberOfPoints = 15;
+    private const int MinimumNumberOfTestCases = 1;
+    private const int MaximumNumberOfTestCases = 15;
 
     static void Main(String[] args)
     {
@@ -37,12 +37,12 @@ class Solution
             return -1;
         }
 
-        if (numberOfTestCases < MinimumNumberOfPoints ||
-            numberOfTestCases > MaximumNumberOfPoints)
+        if (numberOfTestCases < MinimumNumberOfTestCases ||
+            numberOfTestCases > MaximumNumberOfTestCases)
         {
             Console.WriteLine("Invalid Input: " + numberOfTestCases +
-                " is not in range (" + MinimumNumberOfPoints + " <= T <= " +
-                MaximumNumberOfPoints + ")");
+                " is not in range (" + MinimumNumberOfTestCases + " <= T <= " +
+                MaximumNumberOfTestCases + ")");
             return -2;
         }
 
